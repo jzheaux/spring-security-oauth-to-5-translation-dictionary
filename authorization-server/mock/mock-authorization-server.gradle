@@ -1,0 +1,6 @@
+apply plugin: 'io.spring.convention.spring-sample-boot'
+
+dependencies {
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	compile 'com.squareup.okhttp3:mockwebserver'
+}

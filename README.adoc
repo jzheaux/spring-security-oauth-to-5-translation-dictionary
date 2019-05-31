@@ -1,0 +1,36 @@
+= Spring Security OAuth and Spring Security 5 Comparisons
+
+The API and programming style for OAuth 2.0 in Spring Security 5 are both quite different from its predecessor plugin project, Spring Security OAuth.
+Thus, demonstrating ways to migrate from one to the other is probably a bit misleading.
+It's not recommended that you use these examples as a migration pattern.
+
+However, there's value in doing some side-by-side comparisons, which is what this repo aims to do.
+If you're familiar with Spring Security OAuth, you can use this as something of a translation dictionary to compare the Spring Security OAuth way to the Spring Security 5 way.
+
+You can find detailed instructions on how to use OAuth 2.0 in Spring Security 5 in the https://docs.spring.io/autorepo/docs/spring-security/5.1.5.RELEASE/reference/html/jc.html#oauth2client[Spring Security 5 Reference].
+
+== Dependencies
+
+Note that the dependencies have changed. 
+Historically, OAuth 2.0 support was in a plugin project called Spring Security OAuth.
+So, in old projects, you will see deprecated dependencies:
+
+```gradle
+compile 'org.springframework.security.oauth:spring-security-oauth`
+compile "org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:${bootVersion}"
+```
+
+And in new projects, you will instead see a dependency for each OAuth 2.0 actor.
+
+A client would be:
+
+```gradle
+compile 'org.springframework.security:spring-security-oauth2-client'
+```
+
+And a resource server would be:
+
+```gradle
+compile 'org.springframework.security:spring-security-oauth2-resource-server'
+```
+

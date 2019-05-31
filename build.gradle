@@ -1,0 +1,26 @@
+buildscript {
+	dependencies {
+		classpath 'io.spring.gradle:spring-build-conventions:0.0.25.RELEASE'
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+		classpath 'io.spring.nohttp:nohttp-gradle:0.0.1.RELEASE'
+	}
+	repositories {
+		maven { url 'https://repo.spring.io/plugins-snapshot' }
+		maven { url 'https://plugins.gradle.org/m2/' }
+	}
+}
+apply plugin: 'io.spring.nohttp'
+apply plugin: 'io.spring.convention.root'
+
+group = 'org.springframework.security.migrate'
+description = 'Spring Security OAuth to Spring Security 5 Translation Dictionary'
+
+repositories {
+	mavenCentral()
+}
+
+subprojects {
+	plugins.withType(JavaPlugin) {
+		project.sourceCompatibility='1.8'
+	}
+}
